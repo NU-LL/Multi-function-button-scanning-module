@@ -1,7 +1,7 @@
 # 裸机多功能按键扫描模块
 
 ## 简介
-本按键模块主要是参考ShuifaHe的STM32项目（github地址: https://github.com/ShuifaHe/STM32）修改而来，并改进诸多细节以及长时间等待后KEYTIME未判断是否溢出的BUG，使之更加方便移植到别的嵌入式系统中去
+本按键模块主要是参考ShuifaHe的STM32项目（github地址: https://github.com/ShuifaHe/STM32 ）修改而来，并改进诸多细节以及长时间等待后KEYTIME未判断是否溢出的BUG，使之更加方便移植到别的嵌入式系统中去
 
 ## 移植
 1.根据配置文件key_config.h中的注释修改对应的宏，需注意KEYNUMMAX和KEY_COMBINATION_MAX宏必须为对应的最大值
