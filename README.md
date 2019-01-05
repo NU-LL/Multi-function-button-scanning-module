@@ -20,12 +20,12 @@ static KeyS_Type _GetHalKeyCode(void)
 	return ktmp;
 }
 ```
-4.可选择是否修改按键判断函数**static unsigned char _GetKey(void)**，此函数主要为定义系统中起作用的按键事件，可以增加定义一些组合键事件。所有按键的单击、双击、长按、保持等键值输出已经实现，如果有需要则在该函数中增加组合键等键值。具体修改请参考注释
+4.可选择是否修改按键判断函数**static unsigned char _GetKey(void)** ，此函数主要为定义系统中起作用的按键事件，可以增加定义一些组合键事件。所有按键的单击、双击、长按、保持等键值输出已经实现，如果有需要则在该函数中增加组合键等键值。具体修改请参考注释
 
-5.当有必要处理一些紧急按键响应的时候（按键处理占用时间短（无延时语句、长循环等），按键要求强实时处理），可以在key_config.h中开启REALTIMEKEY_ENABLE宏（注：实时性受INTERRUPT_TICKS宏的影响），此时就需要修改key.c中的**static unsigned char _KeyPrePro(void)**函数，强实时性的事件均应该位于此处。
+5.当有必要处理一些紧急按键响应的时候（按键处理占用时间短（无延时语句、长循环等），按键要求强实时处理），可以在key_config.h中开启REALTIMEKEY_ENABLE宏（注：实时性受INTERRUPT_TICKS宏的影响），此时就需要修改key.c中的**static unsigned char _KeyPrePro(void)** 函数，强实时性的事件均应该位于此处。
 
 ## 使用
-1.主循环中使用读取键值函数**ReadKey()** ，获取当前的键值，再通过宏**KEY_EVENT(keynum,event)**判断按键事件
+1.主循环中使用读取键值函数**ReadKey()** ，获取当前的键值，再通过宏**KEY_EVENT(keynum,event)** 判断按键事件
 ```c
 while(1)
 {
@@ -61,7 +61,7 @@ while(1)
 	delay_ms(50);//模拟CPU干其它工作的时间
 }
 ```
-2.在key_config.h中开启REALTIMEKEY_ENABLE宏后（注：实时性受INTERRUPT_TICKS宏的影响），部分要求强实时性的紧急按键事件应该在key.c中的**static unsigned char _KeyPrePro(void)**函数处理
+2.在key_config.h中开启REALTIMEKEY_ENABLE宏后（注：实时性受INTERRUPT_TICKS宏的影响），部分要求强实时性的紧急按键事件应该在key.c中的**static unsigned char _KeyPrePro(void)** 函数处理
 ```c
 static unsigned char _KeyPrePro(void)
 {
