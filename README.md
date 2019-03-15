@@ -29,7 +29,7 @@ static KeyS_Type _GetHalKeyCode(void)
 ```c
 while(1)
 {
-	key=Read_A_Key();	//得到键值
+	key=ReadKey();	//得到键值
 	switch(key)
 	{				 
 		//常规一般按键测试（按下键就起作用）：
